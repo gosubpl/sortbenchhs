@@ -249,8 +249,8 @@ minusesmonadic xs = xs >>= (\x -> [-x])
 
 numbers :: IO (V, V)
 numbers = do
-  short <- withSystemRandom . asGenIO $ \gen -> uniformVector gen 20000
-  long  <- withSystemRandom . asGenIO $ \gen -> uniformVector gen 500000
+  short <- withSystemRandom . asGenIO $ \gen -> uniformVector gen 200000
+  long  <- withSystemRandom . asGenIO $ \gen -> uniformVector gen 1000000
   return (short, long)
 
 -- to run
@@ -262,52 +262,52 @@ numbers = do
 main :: IO ()
 main = defaultMain [
      env numbers $ \ ~(short, long) ->
-     bgroup "clean map" [ bench "20000"  $ nf minuses (U.toList short)
-               , bench "500000"  $ nf minuses (U.toList long)
+     bgroup "clean map" [ bench "200000"  $ nf minuses (U.toList short)
+               , bench "1000000"  $ nf minuses (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "monadic map" [ bench "20000"  $ nf minusesmonadic (U.toList short)
-               , bench "500000"  $ nf minusesmonadic (U.toList long)
+     bgroup "monadic map" [ bench "200000"  $ nf minusesmonadic (U.toList short)
+               , bench "1000000"  $ nf minusesmonadic (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "qsort funct. less space" [ bench "20000"  $ nf qsort3 (U.toList short)
-               , bench "500000"  $ nf qsort3 (U.toList long)
+     bgroup "qsort funct. less space" [ bench "200000"  $ nf qsort3 (U.toList short)
+               , bench "1000000"  $ nf qsort3 (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "qsort functional" [ bench "20000" $ nf qsort1 (U.toList short)
-               , bench "500000"  $ nf qsort1 (U.toList long)
+     bgroup "qsort functional" [ bench "200000" $ nf qsort1 (U.toList short)
+               , bench "1000000"  $ nf qsort1 (U.toList long)
+               ],
+--     env numbers $ \ ~(short, long) ->
+--     bgroup "qsort" [ bench "200000" $ nf sortList (U.toList short)
+--               , bench "1000000" $ nf sortList (U.toList long)
+--               ],
+     env numbers $ \ ~(short, long) ->
+     bgroup "imperative qsort" [ bench "200000" $ nf stuquick (U.toList short)
+               , bench "1000000" $ nf stuquick (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "qsort" [ bench "20000" $ nf sortList (U.toList short)
-               , bench "500000" $ nf sortList (U.toList long)
+     bgroup "built-in introsort" [ bench "200000" $ nf vsort (U.toList short)
+               , bench "1000000" $ nf vsort (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "imperative qsort" [ bench "20000" $ nf stuquick (U.toList short)
-               , bench "500000" $ nf stuquick (U.toList long)
+     bgroup "leftist heapsort in-line" [ bench "200000" $ nf heapsort (U.toList short)
+               , bench "1000000" $ nf heapsort (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "built-in introsort" [ bench "20000" $ nf vsort (U.toList short)
-               , bench "500000" $ nf vsort (U.toList long)
+     bgroup "PQueue heapsort" [ bench "200000" $ nf hpqsort (U.toList short)
+               , bench "1000000" $ nf hpqsort (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "leftist heapsort in-line" [ bench "20000" $ nf heapsort (U.toList short)
-               , bench "500000" $ nf heapsort (U.toList long)
+     bgroup "Leftist Heap heapsort" [ bench "200000" $ nf hsort (U.toList short)
+               , bench "1000000" $ nf hsort (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "PQueue heapsort" [ bench "20000" $ nf hpqsort (U.toList short)
-               , bench "500000" $ nf hpqsort (U.toList long)
+     bgroup "bottom-up mergesort" [ bench "200000" $ nf msort (U.toList short)
+               , bench "1000000" $ nf msort (U.toList long)
                ],
      env numbers $ \ ~(short, long) ->
-     bgroup "Leftist Heap heapsort" [ bench "20000" $ nf hsort (U.toList short)
-               , bench "500000" $ nf hsort (U.toList long)
-               ],
-     env numbers $ \ ~(short, long) ->
-     bgroup "bottom-up mergesort" [ bench "20000" $ nf msort (U.toList short)
-               , bench "500000" $ nf msort (U.toList long)
-               ],
-     env numbers $ \ ~(short, long) ->
-     bgroup "top-down mergesort" [ bench "20000" $ nf msort2 (U.toList short)
-               , bench "500000" $ nf msort2 (U.toList long)
+     bgroup "top-down mergesort" [ bench "200000" $ nf msort2 (U.toList short)
+               , bench "1000000" $ nf msort2 (U.toList long)
                ]
      ]
 
