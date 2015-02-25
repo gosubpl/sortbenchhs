@@ -1,0 +1,155 @@
+benchmarking clean map/20000
+time                 367.0 us   (365.2 us .. 368.7 us)
+                     0.999 Rt   (0.997 Rt .. 1.000 Rt)
+mean                 368.7 us   (365.6 us .. 379.2 us)
+std dev              16.23 us   (5.759 us .. 34.67 us)
+variance introduced by outliers: 39% (moderately inflated)
+
+benchmarking clean map/500000
+time                 9.823 ms   (9.784 ms .. 9.862 ms)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 9.890 ms   (9.849 ms .. 9.933 ms)
+std dev              113.8 us   (90.09 us .. 152.2 us)
+
+benchmarking monadic map/20000
+time                 340.4 us   (338.6 us .. 342.1 us)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 337.1 us   (336.1 us .. 338.7 us)
+std dev              4.556 us   (3.630 us .. 6.116 us)
+
+benchmarking monadic map/500000
+time                 9.006 ms   (8.913 ms .. 9.128 ms)
+                     1.000 Rt   (0.999 Rt .. 1.000 Rt)
+mean                 9.061 ms   (9.030 ms .. 9.091 ms)
+std dev              82.70 us   (62.62 us .. 111.1 us)
+
+benchmarking qsort funct. less space/20000
+time                 6.954 ms   (6.872 ms .. 7.081 ms)
+                     0.999 Rt   (0.998 Rt .. 0.999 Rt)
+mean                 7.037 ms   (6.996 ms .. 7.082 ms)
+std dev              121.0 us   (97.20 us .. 159.5 us)
+
+benchmarking qsort funct. less space/500000
+time                 515.4 ms   (459.5 ms .. 546.6 ms)
+                     0.998 Rt   (0.997 Rt .. 1.000 Rt)
+mean                 523.6 ms   (512.5 ms .. 529.5 ms)
+std dev              9.709 ms   (0.0 s .. 10.20 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking qsort functional/20000
+time                 18.87 ms   (18.67 ms .. 19.14 ms)
+                     0.999 Rt   (0.998 Rt .. 1.000 Rt)
+mean                 18.31 ms   (18.15 ms .. 18.50 ms)
+std dev              404.1 us   (333.3 us .. 514.8 us)
+
+benchmarking qsort functional/500000
+time                 1.072 s    (1.015 s .. 1.122 s)
+                     1.000 Rt   (0.999 Rt .. 1.000 Rt)
+mean                 1.086 s    (1.076 s .. 1.092 s)
+std dev              10.34 ms   (0.0 s .. 11.80 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking qsort/20000
+time                 186.7 ms   (184.7 ms .. 188.6 ms)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 186.2 ms   (185.4 ms .. 187.0 ms)
+std dev              1.065 ms   (584.0 us .. 1.482 ms)
+variance introduced by outliers: 14% (moderately inflated)
+
+benchmarking qsort/500000
+time                 5.908 s    (5.823 s .. 5.994 s)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 5.904 s    (5.885 s .. 5.914 s)
+std dev              16.88 ms   (0.0 s .. 17.77 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking imperative qsort/20000
+time                 4.256 ms   (4.202 ms .. 4.294 ms)
+                     0.999 Rt   (0.999 Rt .. 1.000 Rt)
+mean                 4.314 ms   (4.291 ms .. 4.338 ms)
+std dev              80.98 us   (68.19 us .. 104.3 us)
+
+benchmarking imperative qsort/500000
+time                 161.2 ms   (155.6 ms .. 167.0 ms)
+                     0.998 Rt   (0.994 Rt .. 1.000 Rt)
+mean                 166.8 ms   (163.2 ms .. 171.5 ms)
+std dev              5.595 ms   (3.462 ms .. 7.915 ms)
+variance introduced by outliers: 12% (moderately inflated)
+
+benchmarking built-in introsort/20000
+time                 3.789 ms   (3.767 ms .. 3.813 ms)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 3.831 ms   (3.817 ms .. 3.847 ms)
+std dev              47.38 us   (38.27 us .. 64.92 us)
+
+benchmarking built-in introsort/500000
+time                 123.8 ms   (120.9 ms .. 126.4 ms)
+                     0.999 Rt   (0.999 Rt .. 1.000 Rt)
+mean                 124.7 ms   (123.8 ms .. 126.1 ms)
+std dev              1.584 ms   (889.5 us .. 2.445 ms)
+variance introduced by outliers: 11% (moderately inflated)
+
+benchmarking leftist heapsort in-line/20000
+time                 32.61 ms   (32.10 ms .. 33.34 ms)
+                     0.999 Rt   (0.998 Rt .. 1.000 Rt)
+mean                 33.01 ms   (32.78 ms .. 33.29 ms)
+std dev              518.6 us   (340.9 us .. 826.2 us)
+
+benchmarking leftist heapsort in-line/500000
+time                 2.471 s    (2.429 s .. 2.524 s)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 2.432 s    (2.408 s .. 2.445 s)
+std dev              21.15 ms   (0.0 s .. 22.32 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking PQueue heapsort/20000
+time                 24.83 ms   (24.60 ms .. 25.08 ms)
+                     1.000 Rt   (0.999 Rt .. 1.000 Rt)
+mean                 24.77 ms   (24.65 ms .. 24.86 ms)
+std dev              233.1 us   (170.8 us .. 365.7 us)
+
+benchmarking PQueue heapsort/500000
+time                 1.735 s    (1.701 s .. 1.785 s)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 1.739 s    (1.730 s .. 1.744 s)
+std dev              8.169 ms   (0.0 s .. 8.369 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking Leftist Heap heapsort/20000
+time                 40.30 ms   (39.93 ms .. 40.74 ms)
+                     1.000 Rt   (0.999 Rt .. 1.000 Rt)
+mean                 39.93 ms   (39.66 ms .. 40.13 ms)
+std dev              463.2 us   (340.3 us .. 610.6 us)
+
+benchmarking Leftist Heap heapsort/500000
+time                 2.475 s    (2.439 s .. 2.521 s)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 2.482 s    (2.472 s .. 2.487 s)
+std dev              8.571 ms   (0.0 s .. 9.551 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking bottom-up mergesort/20000
+time                 28.16 ms   (27.95 ms .. 28.44 ms)
+                     1.000 Rt   (0.999 Rt .. 1.000 Rt)
+mean                 27.86 ms   (27.66 ms .. 28.03 ms)
+std dev              404.1 us   (298.7 us .. 514.8 us)
+
+benchmarking bottom-up mergesort/500000
+time                 1.948 s    (1.881 s .. 1.985 s)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 1.947 s    (1.939 s .. 1.953 s)
+std dev              9.854 ms   (0.0 s .. 11.01 ms)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking top-down mergesort/20000
+time                 33.57 ms   (33.40 ms .. 33.80 ms)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 33.47 ms   (33.32 ms .. 33.59 ms)
+std dev              275.1 us   (195.1 us .. 385.2 us)
+
+benchmarking top-down mergesort/500000
+time                 2.225 s    (2.192 s .. 2.274 s)
+                     1.000 Rt   (1.000 Rt .. 1.000 Rt)
+mean                 2.244 s    (2.233 s .. 2.253 s)
+std dev              14.73 ms   (0.0 s .. 15.95 ms)
+variance introduced by outliers: 19% (moderately inflated)

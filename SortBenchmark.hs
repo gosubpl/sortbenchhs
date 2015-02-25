@@ -253,6 +253,12 @@ numbers = do
   long  <- withSystemRandom . asGenIO $ \gen -> uniformVector gen 500000
   return (short, long)
 
+-- to run
+-- http://www.serpentine.com/criterion/tutorial.html
+-- ghc -O --make SortBenchmark
+-- SortBenchmark.exe --output sortbench.html
+-- if fails - chcp 65001
+
 main :: IO ()
 main = defaultMain [
      env numbers $ \ ~(short, long) ->
